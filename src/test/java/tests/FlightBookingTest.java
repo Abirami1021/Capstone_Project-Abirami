@@ -15,18 +15,18 @@ public class FlightBookingTest extends BaseTest {
 
         HomePage home = new HomePage(driver);
         home.selectCities();
-
-        Thread.sleep(2000);   // wait 2 seconds
+      //wait for 2 sec
+        Thread.sleep(2000);   
 
         FlightsPage flights = new FlightsPage(driver);
         flights.selectFlight();
 
-        Thread.sleep(2000);   // wait 2 seconds
+        Thread.sleep(2000);
 
         PurchasePage purchase = new PurchasePage(driver);
         purchase.bookFlight();
 
-        Thread.sleep(5000);   // wait 5 seconds ,so see result
+        Thread.sleep(5000);   
 
         String confirmation = driver.getPageSource();
         Assert.assertTrue(confirmation.contains("Thank you for your purchase"));

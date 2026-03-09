@@ -28,10 +28,10 @@ public class PurchasePage {
         driver.findElement(name).sendKeys("Abirami");
         Thread.sleep(2000);
 
-        driver.findElement(address).sendKeys("Tamil Nadu");
+        driver.findElement(address).sendKeys("106/2,Coimbatore");
         Thread.sleep(2000);
 
-        driver.findElement(city).sendKeys("Tenkasi");
+        driver.findElement(city).sendKeys("Coimbatore");
         Thread.sleep(2000);
 
         driver.findElement(state).sendKeys("TN");
@@ -40,15 +40,15 @@ public class PurchasePage {
         driver.findElement(zip).sendKeys("627814");
         Thread.sleep(2000);
 
-        driver.findElement(cardNumber).sendKeys("123456789012");
+        driver.findElement(cardNumber).sendKeys("9876543210");
         Thread.sleep(2000);
 
         driver.findElement(month).clear();
-        driver.findElement(month).sendKeys("12");
+        driver.findElement(month).sendKeys("3");
         Thread.sleep(2000);
 
         driver.findElement(year).clear();
-        driver.findElement(year).sendKeys("2027");
+        driver.findElement(year).sendKeys("2026");
         Thread.sleep(2000);
 
         driver.findElement(nameOnCard).sendKeys("Abirami");

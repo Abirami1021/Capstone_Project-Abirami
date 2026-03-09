@@ -19,11 +19,11 @@ public class HomePage {
     public void selectCities() throws InterruptedException {
 
         Select dep = new Select(driver.findElement(departure));
-        dep.selectByVisibleText("Boston");
+        dep.selectByVisibleText("Paris");
 
         Thread.sleep(2000);
         Select dest = new Select(driver.findElement(destination));
-        dest.selectByVisibleText("New York");
+        dest.selectByVisibleText("London");
         
         Thread.sleep(2000);
 
