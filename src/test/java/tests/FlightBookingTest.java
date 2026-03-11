@@ -13,22 +13,26 @@ public class FlightBookingTest extends BaseTest {
     @Test
     public void bookFlightTest() throws InterruptedException {
 
+        //Home Page
         HomePage home = new HomePage(driver);
-        home.selectCities();
-      //wait for 2 sec
-        Thread.sleep(2000);   
-
-        FlightsPage flights = new FlightsPage(driver);
-        flights.selectFlight();
-
+        home.selectCities();// Select departure and destination 
+        Thread.sleep(2000);
+       
+        FlightsPage flights = new FlightsPage(driver); //Flights Page
+        flights.selectFlight();// Select first available flight
+        Thread.sleep(2000);
+        
+        PurchasePage purchase = new PurchasePage(driver);//Purchase Page
+        purchase.bookFlight();
         Thread.sleep(2000);
 
-        PurchasePage purchase = new PurchasePage(driver);
-        purchase.bookFlight();
+        String confirmation = driver.getPageSource();//Verify confirmation message
 
-        Thread.sleep(5000);   
+        Assert.assertTrue(
+                confirmation.contains("Thank you for your purchase"),
+                "Flight booking failed!"
+        );
 
-        String confirmation = driver.getPageSource();
-        Assert.assertTrue(confirmation.contains("Thank you for your purchase"));
+        System.out.println("Flight Booking Successful");
     }
 }
