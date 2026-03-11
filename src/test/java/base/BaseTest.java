@@ -17,8 +17,6 @@ public class BaseTest {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-  
         driver.get("https://blazedemo.com/");
     }
 

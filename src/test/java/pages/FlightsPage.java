@@ -13,14 +13,14 @@ public class FlightsPage {
 
     public FlightsPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     By chooseFlight = By.xpath("(//input[@value='Choose This Flight'])[1]");
 
     public void selectFlight() {
 
-        wait.until(ExpectedConditions.elementToBeClickable(chooseFlight));
+       wait.until(ExpectedConditions.elementToBeClickable(chooseFlight));
         driver.findElement(chooseFlight).click();
     }
 }

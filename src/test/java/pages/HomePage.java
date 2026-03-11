@@ -14,7 +14,7 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     By departure = By.name("fromPort");
@@ -23,16 +23,16 @@ public class HomePage {
 
     public void selectCities() {
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(departure));
+       wait.until(ExpectedConditions.visibilityOfElementLocated(departure));
         Select dep = new Select(driver.findElement(departure));
         dep.selectByVisibleText("Paris");
        
-        wait.until(ExpectedConditions.visibilityOfElementLocated(destination));
+       wait.until(ExpectedConditions.visibilityOfElementLocated(destination));
         Select dest = new Select(driver.findElement(destination));
         dest.selectByVisibleText("London");
      
 
-        wait.until(ExpectedConditions.elementToBeClickable(findFlights));
+       wait.until(ExpectedConditions.elementToBeClickable(findFlights));
         driver.findElement(findFlights).click();
     }
 }

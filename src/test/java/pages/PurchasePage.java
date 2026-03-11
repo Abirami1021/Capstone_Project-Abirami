@@ -9,11 +9,11 @@ import java.time.Duration;
 public class PurchasePage {
 
     WebDriver driver;
-    WebDriverWait wait;
+   WebDriverWait wait;
 
     public PurchasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     By name = By.id("inputName");
