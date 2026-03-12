@@ -33,6 +33,6 @@ public class FlightBookingTest extends BaseTest {
                 "Flight booking failed!"
         );
 
-        System.out.println("Flight Booking Successful");
+        System.out.println("Flight Booked Successfully");
     }
 }
