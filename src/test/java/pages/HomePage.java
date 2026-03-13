@@ -23,7 +23,8 @@ public class HomePage {
 
     public void selectCities() {
 
-       wait.until(ExpectedConditions.visibilityOfElementLocated(departure));//Wait until departure dropdown becomes visible.
+       wait.until(ExpectedConditions.visibilityOfElementLocated(departure));
+       //Wait til departure dropdown visible
         Select dep = new Select(driver.findElement(departure));
         dep.selectByVisibleText("Paris");
        

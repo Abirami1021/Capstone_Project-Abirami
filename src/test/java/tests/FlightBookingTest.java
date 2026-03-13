@@ -1,5 +1,11 @@
 package tests;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,24 +21,24 @@ public class FlightBookingTest extends BaseTest {
 
         //Home Page
         HomePage home = new HomePage(driver);
-        home.selectCities();// Select departure and destination 
+        home.selectCities();
        
        
-        FlightsPage flights = new FlightsPage(driver); //Flights Page
-        flights.selectFlight();// Select first available flight
+        FlightsPage flights = new FlightsPage(driver);
+        flights.selectFlight();
        
         
-        PurchasePage purchase = new PurchasePage(driver);//Purchase Page
+        PurchasePage purchase = new PurchasePage(driver);
         purchase.bookFlight();
       
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        String confirmation = driver.getPageSource();//Verify confirmation message
+        WebElement confirmation = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//h1[contains(text(),'Thank you for your purchase')]")));
+        Assert.assertTrue(confirmation.getText().contains("Thank you for your purchase"));
+       
 
-        Assert.assertTrue(
-                confirmation.contains("Thank you for your purchase"),
-                "Flight booking failed!"
-        );
-
-        System.out.println("Flight Booked Successfully");
+        System.out.println("Congratulations!,Flight Booked Successfully");
     }
 }
