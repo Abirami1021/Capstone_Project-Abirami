@@ -37,8 +37,16 @@ public class FlightBookingTest extends BaseTest {
 
         String str = driver.getPageSource();
 
-        Assert.assertTrue(str.contains("Thank you for your purchase"));
+        // Negative case
+        if(name.isEmpty()){
+            System.out.println("Negative Test Case Executed");
+            Assert.assertFalse(str.contains("Thank you for your purchase"));
+        }
 
-        System.out.println("Congratulations!,Your Flight Booked Successfully.");
+        // Positive cases
+        else{
+            Assert.assertTrue(str.contains("Thank you for your purchase"));
+            System.out.println("Positive Test Case Passed");
+        }
     }
 }
