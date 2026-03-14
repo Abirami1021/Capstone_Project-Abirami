@@ -9,11 +9,11 @@ import java.time.Duration;
 public class PurchasePage {
 
     WebDriver driver;
-   WebDriverWait wait;
+    WebDriverWait wait;
 
     public PurchasePage(WebDriver driver) {
         this.driver = driver;
-       wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     By name = By.id("inputName");
@@ -27,32 +27,27 @@ public class PurchasePage {
     By nameOnCard = By.id("nameOnCard");
     By purchaseBtn = By.xpath("//input[@value='Purchase Flight']");
 
-    public void bookFlight() {
+    public void bookFlight(String nameVal, String addressVal, String cityVal,
+                           String stateVal, String zipVal, String cardVal,
+                           String monthVal, String yearVal, String cardNameVal) {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(name));
-        driver.findElement(name).sendKeys("Abirami");
-       // Thread.sleep(1500);
 
-        driver.findElement(address).sendKeys("106/2,Coimbatore");
-       
-        driver.findElement(city).sendKeys("Coimbatore");
-        
-        driver.findElement(state).sendKeys("TN");
-      
-
-        driver.findElement(zip).sendKeys("627814");
-       
-        driver.findElement(cardNumber).sendKeys("9876543210");
-    
+        driver.findElement(name).sendKeys(nameVal);
+        driver.findElement(address).sendKeys(addressVal);
+        driver.findElement(city).sendKeys(cityVal);
+        driver.findElement(state).sendKeys(stateVal);
+        driver.findElement(zip).sendKeys(zipVal);
+        driver.findElement(cardNumber).sendKeys(cardVal);
 
         driver.findElement(month).clear();
-        driver.findElement(month).sendKeys("3");
-       
+        driver.findElement(month).sendKeys(monthVal);
+
         driver.findElement(year).clear();
-        driver.findElement(year).sendKeys("2026");
-       
-        driver.findElement(nameOnCard).sendKeys("Abirami");
-        
+        driver.findElement(year).sendKeys(yearVal);
+
+        driver.findElement(nameOnCard).sendKeys(cardNameVal);
+
         driver.findElement(purchaseBtn).click();
     }
 }

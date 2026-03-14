@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Flight_Booking_Suite" class="navigator-link">
-              <span class="suite-name border-passed">Flight Booking Suite</span>
+              <span class="suite-name border-failed">Flight Booking Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Flight_Booking_Suite" class="hide-methods failed suite-Flight_Booking_Suite"> (hide)</a> <!-- hide-methods failed suite-Flight_Booking_Suite -->
+                      <a href="#" panel-name="suite-Flight_Booking_Suite" class="show-methods failed suite-Flight_Booking_Suite"> (show)</a> <!-- show-methods failed suite-Flight_Booking_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Flight_Booking_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Flight_Booking_Suite" title="tests.FlightBookingTest" class="method navigator-link" hash-for-method="bookFlightTest(Paris, London, Abirami, 106/2 Coimbatore, Coimbatore, TN, 627814, 9876543210, 3, 2026, Abirami)">bookFlightTest(Paris, London, Abirami, 106/2 Coimbatore, Coimbatore, TN, 627814, 9876543210, 3, 2026, Abirami)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Flight_Booking_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +117,12 @@
                     <div class="method-list-content passed suite-Flight_Booking_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Flight_Booking_Suite" title="tests.FlightBookingTest" class="method navigator-link" hash-for-method="bookFlightTest">bookFlightTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Flight_Booking_Suite" title="tests.FlightBookingTest" class="method navigator-link" hash-for-method="bookFlightTest(Boston, Berlin, Kavi, 12 Street, Chennai, TN, 75001, 1234567890, 5, 2027, Kavi)">bookFlightTest(Boston, Berlin, Kavi, 12 Street, Chennai, TN, 75001, 1234567890, 5, 2027, Kavi)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Flight_Booking_Suite" title="tests.FlightBookingTest" class="method navigator-link" hash-for-method="bookFlightTest(San Diego, New York, , 45 Road, Bangalore, KA, 560001, 9871234567, 6, 2028, Pravee)">bookFlightTest(San Diego, New York, , 45 Road, Bangalore, KA, 560001, 9871234567, 6, 2028, Pravee)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Flight_Booking_Suite -->
@@ -118,6 +137,27 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Flight_Booking_Suite" class="panel Flight_Booking_Suite">
+          <div class="suite-Flight_Booking_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">tests.FlightBookingTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="bookFlightTest(Paris, London, Abirami, 106/2 Coimbatore, Coimbatore, TN, 627814, 9876543210, 3, 2026, Abirami)">
+                  </a> <!-- bookFlightTest(Paris, London, Abirami, 106/2 Coimbatore, Coimbatore, TN, 627814, 9876543210, 3, 2026, Abirami) -->
+                  <span class="method-name">bookFlightTest</span>
+                  <span class="parameters">(Paris,London,Abirami,106/2 Coimbatore,Coimbatore,TN,627814,9876543210,3,2026,Abirami)</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at tests.FlightBookingTest.bookFlightTest(FlightBookingTest.java:41)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Flight_Booking_Suite-class-failed -->
           <div class="suite-Flight_Booking_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -126,9 +166,18 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="bookFlightTest">
-                  </a> <!-- bookFlightTest -->
+                  <a name="bookFlightTest(Boston, Berlin, Kavi, 12 Street, Chennai, TN, 75001, 1234567890, 5, 2027, Kavi)">
+                  </a> <!-- bookFlightTest(Boston, Berlin, Kavi, 12 Street, Chennai, TN, 75001, 1234567890, 5, 2027, Kavi) -->
                   <span class="method-name">bookFlightTest</span>
+                  <span class="parameters">(Boston,Berlin,Kavi,12 Street,Chennai,TN,75001,1234567890,5,2027,Kavi)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="bookFlightTest(San Diego, New York, , 45 Road, Bangalore, KA, 560001, 9871234567, 6, 2028, Pravee)">
+                  </a> <!-- bookFlightTest(San Diego, New York, , 45 Road, Bangalore, KA, 560001, 9871234567, 6, 2028, Pravee) -->
+                  <span class="method-name">bookFlightTest</span>
+                  <span class="parameters">(San Diego,New York,,45 Road,Bangalore,KA,560001,9871234567,6,2028,Pravee)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -142,12 +191,12 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Flight Booking Suite&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Flight Test&quot;&gt;
+&lt;suite name=&quot;Flight Booking Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Flight Booking Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;tests.FlightBookingTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Flight Test --&gt;
+  &lt;/test&gt; &lt;!-- Flight Booking Test --&gt;
 &lt;/suite&gt; &lt;!-- Flight Booking Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -159,7 +208,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Flight Test (1 class)</span>
+                <span class="test-name">Flight Booking Test (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -185,16 +234,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'bookFlightTest')
 data.setCell(0, 2, 'tests.FlightBookingTest')
-data.setCell(0, 3, 3781);
+data.setCell(0, 3, 3876);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'bookFlightTest')
+data.setCell(1, 2, 'tests.FlightBookingTest')
+data.setCell(1, 3, 3843);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'bookFlightTest')
+data.setCell(2, 2, 'tests.FlightBookingTest')
+data.setCell(2, 3, 3828);
 window.suiteTableData['Flight_Booking_Suite']= { tableData: data, tableDiv: 'times-div-Flight_Booking_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 11 seconds</span>
               <div id="times-div-Flight_Booking_Suite">
               </div> <!-- times-div-Flight_Booking_Suite -->
             </div> <!-- times-div -->
@@ -222,16 +279,42 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">tests.FlightBookingTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setup</span>
+                <span class="method-name">setup([TestResult name={null} status=CREATED method=FlightBookingTest.bookFlightTest(java.lang.String,java...)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">bookFlightTest</span>
-                <span class="method-start">6428 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">bookFlightTest(Paris, London, Abirami, 106/2 Coimbatore, Coimbatore, TN, 627814, 9876543210, 3, 2026, Abirami)</span>
+                <span class="method-start">3628 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=bookFlightTest status=SUCCESS method=FlightBookingTest.bookFlightTest()[pri:0, inst...)</span>
-                <span class="method-start">10213 ms</span>
+                <span class="method-name">tearDown([TestResult name=bookFlightTest status=FAILURE method=FlightBookingTest.bookFlightTest(java.lang.Str...)</span>
+                <span class="method-start">7468 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup([TestResult name={null} status=CREATED method=FlightBookingTest.bookFlightTest(java.lang.String,java...)</span>
+                <span class="method-start">9397 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">bookFlightTest(Boston, Berlin, Kavi, 12 Street, Chennai, TN, 75001, 1234567890, 5, 2027, Kavi)</span>
+                <span class="method-start">11455 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=bookFlightTest status=SUCCESS method=FlightBookingTest.bookFlightTest(java.lang.Str...)</span>
+                <span class="method-start">15337 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup([TestResult name={null} status=CREATED method=FlightBookingTest.bookFlightTest(java.lang.String,java...)</span>
+                <span class="method-start">15869 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">bookFlightTest(San Diego, New York, , 45 Road, Bangalore, KA, 560001, 9871234567, 6, 2028, Pravee)</span>
+                <span class="method-start">17952 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=bookFlightTest status=SUCCESS method=FlightBookingTest.bookFlightTest(java.lang.Str...)</span>
+                <span class="method-start">21800 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

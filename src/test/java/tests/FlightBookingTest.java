@@ -1,13 +1,9 @@
 package tests;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.openqa.selenium.By;
 
 import base.BaseTest;
 import pages.HomePage;
@@ -16,29 +12,34 @@ import pages.PurchasePage;
 
 public class FlightBookingTest extends BaseTest {
 
-    @Test
-    public void bookFlightTest(){
+	@DataProvider(name="bookingData")
+	public Object[][] getData(){
+	    return new Object[][]{
+	     {"Paris","London","Abirami","106/2 Coimbatore","Coimbatore","TN","627814","9876543210","3","2026","Abirami"},
+	     {"Boston","Berlin","Kavi","12 Street","Chennai","TN","75001","1234567890","5","2027","Kavi"},
+	     {"San Diego","New York","","45 Road","Bangalore","KA","560001","9871234567","6","2028","Pravee"}
+	    };
+	}
 
-        //Home Page
+    @Test(dataProvider="bookingData")
+    public void bookFlightTest(String fromCity,String toCity,
+                               String name,String address,String city,
+                               String state,String zip,String card,
+                               String month,String year,String cardName){
+
         HomePage home = new HomePage(driver);
-        home.selectCities();
-       
-       
+        home.selectCities(fromCity,toCity);
+
         FlightsPage flights = new FlightsPage(driver);
         flights.selectFlight();
-       
-        
+
         PurchasePage purchase = new PurchasePage(driver);
-        purchase.bookFlight();
-      
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        purchase.bookFlight(name,address,city,state,zip,card,month,year,cardName);
 
-        WebElement confirmation = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//h1[contains(text(),'Thank you for your purchase')]")));
-        Assert.assertTrue(confirmation.getText().contains("Thank you for your purchase"));
-       
+        String str = driver.getPageSource();
 
-        System.out.println("Congratulations!,Flight Booked Successfully");
+        Assert.assertTrue(str.contains("Thank you for your purchase"));
+
+        System.out.println("Flight booking completed");
     }
 }

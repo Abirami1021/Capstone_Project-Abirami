@@ -21,19 +21,19 @@ public class HomePage {
     By destination = By.name("toPort");
     By findFlights = By.xpath("//input[@value='Find Flights']");
 
-    public void selectCities() {
+    public void selectCities(String fromCity,String toCity) {
 
-       wait.until(ExpectedConditions.visibilityOfElementLocated(departure));
-       //Wait til departure dropdown visible
+        wait.until(ExpectedConditions.visibilityOfElementLocated(departure));
+
         Select dep = new Select(driver.findElement(departure));
-        dep.selectByVisibleText("Paris");
-       
-       wait.until(ExpectedConditions.visibilityOfElementLocated(destination));
-        Select dest = new Select(driver.findElement(destination));
-        dest.selectByVisibleText("London");
-     
+        dep.selectByVisibleText(fromCity);
 
-       wait.until(ExpectedConditions.elementToBeClickable(findFlights));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(destination));
+
+        Select dest = new Select(driver.findElement(destination));
+        dest.selectByVisibleText(toCity);
+
+        wait.until(ExpectedConditions.elementToBeClickable(findFlights));
         driver.findElement(findFlights).click();
     }
 }
